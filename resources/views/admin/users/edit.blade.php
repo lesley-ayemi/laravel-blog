@@ -57,9 +57,19 @@
 {{-- {{ Form::select('size', ['L' => 'Large', 'S' => 'Small'], null, ['placeholder' => 'Pick a size...'], ['class'=>'form-control'])}} --}}
 
 <div class="form-group">
-    {!! Form::submit('Create User', ['class'=>'btn btn-primary']) !!}
+    {!! Form::submit('Update User', ['class'=>'btn btn-primary col-md-4']) !!}
 </div>
 
+
+{!! Form::close() !!}
+
+{{-- Delete Button functionality --}}
+
+{!! Form::open(['method'=>'DELETE', 'action'=> ['AdminUsersController@destroy', $user->id]]) !!}
+
+<div class="form-group">
+    {!! Form::submit('Delete User', ['class'=>'btn btn-danger col-md-4 pull-right']) !!}
+</div>
 
 {!! Form::close() !!}
 

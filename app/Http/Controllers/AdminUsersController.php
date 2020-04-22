@@ -6,6 +6,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Requests\UsersRequest;
 use App\Http\Requests\UsersEditRequest;
+use Illuminate\Support\Facades\Session;
 
 
 use App\User;
@@ -153,6 +154,8 @@ class AdminUsersController extends Controller
        }
 
        $user->update($input);
+       Session::flash('updated_user', 'The User Has Been Updated');
+
 
        return redirect('/admin/users');
 
@@ -170,5 +173,19 @@ class AdminUsersController extends Controller
     public function destroy($id)
     {
         //
+
+        //this will delete  the user but not the user image
+
+        $user = User::findOrFail($id); 
+
+        unlink(public_path() . $user->photo->file); //unlink is a function in php we in the public path and the accessor we created
+
+        $user->delete();
+
+        Session::flash('deleted_user', 'The User Has Been Deleted');
+
+        return redirect('/admin/users');
+
+
     }
 }

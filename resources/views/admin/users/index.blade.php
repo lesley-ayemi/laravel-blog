@@ -3,6 +3,25 @@
 
 @section('content')
 
+@if (Session::has('deleted_user'))
+
+{{-- <p> {{session('deleted_user')}} </p> --}}
+<script>alert('{{session('deleted_user')}}') </script>
+
+    
+@endif
+
+@if (Session::has('updated_user'))
+
+{{-- <p> {{session('deleted_user')}} </p> --}}
+<script>alert('{{session('updated_user')}}') </script>
+
+    
+@endif
+
+
+
+
 <h1>Users</h1>
 
 <table class="table">
