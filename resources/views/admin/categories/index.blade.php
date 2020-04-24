@@ -34,6 +34,8 @@
             <th>Id</th>
             <th>Name</th>
             <th>Created Date</th>
+            <th>Updated Date</th>
+
         </tr>
         </thead>
 
@@ -43,8 +45,9 @@
         <tr>
 
         <td>{{$category->id}}</td>
-        <td>{{$category->name}}</td>
+        <td><a href="{{route('admin.categories.edit', $category->id)}}">{{$category->name}}</a></td>
         <td>{{$category->created_at ? $category->created_at->diffForHumans() : 'No Date'}}</td>
+        <td>{{$category->updated_at ? $category->updated_at->diffForHumans() : 'No Update'}}</td>
 
     </tr>
         @endforeach
