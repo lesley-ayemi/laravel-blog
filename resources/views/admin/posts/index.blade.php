@@ -26,10 +26,10 @@
       <tr>
       <td>{{$post->id}}</td>
       <td><img height="50" src="{{$post->photo ? $post->photo->file : 'https://place-hold.it/300x500'}}" alt=""></td>
-      <td>{{ $post->user ? $post->user->name : 'No User Yet' }}</td>
+      <td><a href="{{route('admin.posts.edit', $post->id)}}">{{ $post->user ? $post->user->name : 'No User Yet' }}</a></td>
       <td>{{$post->category ? $post->category->name : 'No Category'}}</td>
       <td>{{$post->title }}</td>
-      <td>{{$post->body }}</td>
+      <td>{{ str_limit($post->body, 20) }}</td>
       <td>{{$post->created_at->diffForHumans()}}</td>  
       <td>{{$post->updated_at->diffForHumans()}}</td>
 
