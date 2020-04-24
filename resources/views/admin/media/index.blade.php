@@ -24,6 +24,19 @@
     <td>{{$photo->id}}</td>
     <td><img height="50" src="{{$photo->file ? $photo->file : 'No Image'}}" alt=""></td>
     <td>{{$photo->created_at ? $photo->created_at : 'No Date'}}</td>
+    <td>
+
+        {!! Form::open(['method'=>'DELETE', 'action'=>['AdminMediasController@destroy', $photo->id]]) !!}
+
+        <div class="form-group">
+            {!! Form::submit('Delete Image', ['class'=>'btn btn-danger']) !!}
+        </div>
+
+
+        {!! Form::close() !!}
+
+
+    </td>
     </tr>
 </tbody>
 
