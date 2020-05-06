@@ -21,6 +21,7 @@ class CreatePostsTable extends Migration
             $table->text('body');
             $table->timestamps();
 
+
 //this code will allow us to delete users relation in our application
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
 
