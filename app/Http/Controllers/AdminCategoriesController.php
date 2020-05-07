@@ -41,6 +41,11 @@ class AdminCategoriesController extends Controller
      */
     public function store(Request $request)
     {
+        $this->validate($request, [
+            'name'=>'required'
+        ]);
+
+        // return $request->all();
         Category::create($request->all());
 
         return redirect('admin/categories');
