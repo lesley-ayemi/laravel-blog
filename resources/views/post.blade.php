@@ -22,13 +22,13 @@
     <hr>
 
     <!-- Preview Image -->
-    <img class="img-responsive" src="{{$post->photo ? $post->photo->file}}" alt="">
+    <img class="img-responsive" src="{{$post->photo ? $post->photo->file : $post->photoPlaceholder()}}" alt="">
 
     <hr>
 
     <!-- Post Content -->
-
-    <p>{{$post->body}}</p>
+{{-- filtering the images from file manager   --}}
+    <p>{!! $post->body !!}</p> 
 
     {{-- <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus, vero, obcaecati, aut, error quam sapiente nemo saepe quibusdam sit excepturi nam quia corporis eligendi eos magni recusandae laborum minus inventore?</p> --}}
 

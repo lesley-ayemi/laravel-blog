@@ -37,4 +37,13 @@ class Post extends Model
     }
 
 
+    public function photoPlaceholder(){
+
+        return "https://place-hold.it/300x500";
+
+    }
+
+
+
+
 }

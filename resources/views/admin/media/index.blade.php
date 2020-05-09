@@ -44,5 +44,7 @@
 </table>
 
 @endif
+
+{{$photos->render()}}
     
 @endsection
