@@ -49,8 +49,8 @@
       <td>{{$user->email}}</td>
       <td>{{$user->role->name ? $user->role->name : 'No User Role' }}</td>
       <td>{{$user->is_active == 1 ? 'Active' : 'Not Active' }}</td>
-      <td>{{$user->created_at->diffForHumans()}}</td>  
-      <td>{{$user->updated_at->diffForHumans()}}</td>
+      <td>{{$user->created_at ? $user->created_at->diffForHumans()  : 'No Date'}}</td>  
+      <td>{{$user->updated_at ? $user->updated_at->diffForHumans()  : 'No Date'}}</td>
 
 
 {{-- added carbon to the time stamp to make it more readable --}}
