@@ -4,7 +4,7 @@
 @section('content')
 
 <table class="table">
-@if ($comments)
+@if (count($comments) > 0)
 <h1>Comment Section</h1>
     
     <thead>
