@@ -11,9 +11,7 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'HomeController@index');
 //login route
 Route::auth();
 
@@ -26,12 +24,10 @@ Route::get('/logout', 'Auth\LoginController@logout');
 //admin route
 Route::group(['middleware' => 'admin'], function () {
 
-Route::get('/admin', function(){
+//admin index
+Route::get('/admin', 'AdminController@index');
 
-    return view('admin.index');
-
-});
-
+//admin users route
 Route::resource('admin/users', 'AdminUsersController', ['names'=>[
 
     'index'=>'admin.users.index',
@@ -41,6 +37,8 @@ Route::resource('admin/users', 'AdminUsersController', ['names'=>[
 
 
 ]]);
+
+//posts route
 Route::resource('admin/posts', 'AdminPostsController', ['names'=>[
 
     'index'=> 'admin.posts.index',
@@ -52,9 +50,11 @@ Route::resource('admin/posts', 'AdminPostsController', ['names'=>[
 
 ]]);
 
+//post display
 Route::get('/post/{id}', ['as'=>'home.post', 'uses'=>'AdminPostsController@post']);
 
 
+//categories route
 Route::resource('admin/categories', 'AdminCategoriesController', ['names'=>[
 
     'index'=> 'admin.categories.index',
@@ -64,6 +64,8 @@ Route::resource('admin/categories', 'AdminCategoriesController', ['names'=>[
 
 
 ]]);
+
+//all media route
 Route::resource('admin/media', 'AdminMediasController' , ['names'=>[
 
     'index'=> 'admin.media.index',
@@ -76,6 +78,7 @@ Route::resource('admin/media', 'AdminMediasController' , ['names'=>[
 
 Route::delete('admin/delete/media', 'AdminMediasController@deleteMedia');
 
+//comment route 
 Route::resource('admin/comments', 'PostCommentsController', ['names'=>[
 
     'index'=> 'admin.comments.index',
@@ -84,6 +87,8 @@ Route::resource('admin/comments', 'PostCommentsController', ['names'=>[
     
 
 ]]);
+
+//reply for comment route in admin
 Route::resource('admin/comment/replies', 'CommentRepliesController', ['names'=>[
 
     'index'=> 'admin.comments.replies.index',
@@ -93,8 +98,6 @@ Route::resource('admin/comment/replies', 'CommentRepliesController', ['names'=>[
 
 
 ]]);
-
-
 
 
 });
