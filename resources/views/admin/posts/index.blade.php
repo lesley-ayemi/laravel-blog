@@ -28,7 +28,7 @@
       <tr>
       <td>{{$post->id}}</td>
       <td><img height="50" src="{{$post->photo ? $post->photo->file : 'https://place-hold.it/300x500'}}" alt=""></td>
-      <td>{{$post->title }}</td>
+      <td>{{str_limit($post->title,50) }}</td>
       <td class="text-success"><b>{{ $post->user ? $post->user->name : 'No User Yet' }}</b></td>
       <td>{{$post->category ? $post->category->name : 'No Category'}}</td>
       <td><a href="{{route('home.post', $post->slug)}}">View Post</a></td>

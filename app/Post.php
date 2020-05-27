@@ -56,7 +56,8 @@ class Post extends Model
 
     public function photoPlaceholder(){
 
-        return "https://place-hold.it/300x500";
+        // return "https://via.placeholder.com/350x150";
+        return "http://placehold.it/900x300";
 
     }
 

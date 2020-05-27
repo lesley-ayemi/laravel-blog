@@ -24,7 +24,7 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
 $factory->define(App\Post::class, function (Faker\Generator $faker) {
     return [
         'category_id' => $faker->numberBetween(1,10),
-        'photo_id' => 1,
+        'photo_id' => 0,
         'title' => $faker->sentence(7,11),
         'body' => $faker->paragraph(rand(7,11), true),
         'slug'=>$faker->slug()

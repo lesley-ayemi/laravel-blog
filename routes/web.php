@@ -50,8 +50,8 @@ Route::resource('admin/posts', 'AdminPostsController', ['names'=>[
 
 ]]);
 
-//post display
-Route::get('/post/{id}', ['as'=>'home.post', 'uses'=>'AdminPostsController@post']);
+//indivisual post display
+Route::get('/post/{id}', ['as'=>'home.post', 'uses'=>'HomeController@post']);
 
 
 //categories route

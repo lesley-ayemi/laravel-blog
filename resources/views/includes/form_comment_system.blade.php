@@ -10,8 +10,8 @@
 @if (Auth::check())
     
 
-
 <div class="well">
+    <h4>Leave a comment</h4>
 
 {!! Form::open(['method'=>'POST', 'action'=>'PostCommentsController@store']) !!}
 
@@ -126,18 +126,3 @@
 
 
 
-@endsection
-
-
-@section('scripts')
-
-<script>
-
-$(".comment-reply-container .toggle-reply ").click(function(){
-    
-    $(this).next().slideToggle("slow");
-
-})
-
-
-</script>
